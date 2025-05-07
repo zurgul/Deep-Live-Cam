@@ -847,20 +847,20 @@ def get_available_cameras():
                 cap.release()
 
             # On macOS, additional cameras typically use indices 1 and 2
-            for i in [1, 2]:
-                cap = cv2.VideoCapture(i)
-                if cap.isOpened():
-                    camera_indices.append(i)
-                    camera_names.append(f"Camera {i}")
-                    cap.release()
-        else:
-            # Linux camera detection - test first 10 indices
-            for i in range(10):
-                cap = cv2.VideoCapture(i)
-                if cap.isOpened():
-                    camera_indices.append(i)
-                    camera_names.append(f"Camera {i}")
-                    cap.release()
+            # for i in [1, 2]:
+            #     cap = cv2.VideoCapture(i)
+            #     if cap.isOpened():
+            #         camera_indices.append(i)
+            #         camera_names.append(f"Camera {i}")
+            #         cap.release()
+        # else:
+        #     # Linux camera detection - test first 10 indices
+        #     for i in range(10):
+        #         cap = cv2.VideoCapture(i)
+        #         if cap.isOpened():
+        #             camera_indices.append(i)
+        #             camera_names.append(f"Camera {i}")
+        #             cap.release()
 
         if not camera_names:
             return [], ["No cameras found"]
